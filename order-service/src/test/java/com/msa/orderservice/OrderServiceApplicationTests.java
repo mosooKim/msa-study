@@ -1,10 +1,10 @@
-package com.msa.study;
+package com.msa.orderservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StudyApplicationTests {
+class OrderServiceApplicationTests {
 
     @Test
     void contextLoads() {

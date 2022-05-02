@@ -20,24 +20,36 @@ spring:
             preLogger: true
             postLogger: true
       routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/catalog-service/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**
         - id: first-service
           uri: lb://MY-FIRST-SERVICE
           predicates:
             - Path=/first-service/**
           filters:
-#            - AddRequestHeader=first-request, first-request-header2
-#            - AddResponseHeader=first-response, first-response-header2
-             - CustomFilter
+            #            - AddRequestHeader=first-request, first-request-header2
+            #            - AddResponseHeader=first-response, first-response-header2
+            - CustomFilter
         - id: second-service
           uri: lb://MY-SECOND-SERVICE
           predicates:
             - Path=/second-service/**
           filters:
-#            - AddRequestHeader=second-request, second-request-header2
-#            - AddResponseHeader=second-response, second-response-header2
-             - CustomFilter
-             - name: LoggingFilter
-               args:
-                 baseMessage: Hi, There.
-                 preLogger: true
-                 postLogger: true
+            #            - AddRequestHeader=second-request, second-request-header2
+            #            - AddResponseHeader=second-response, second-response-header2
+            - CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Hi, There.
+                preLogger: true
+                postLogger: true

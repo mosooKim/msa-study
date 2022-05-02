@@ -36,6 +36,6 @@ public class FirstServiceController {
         log.info("Server port={}", request.getServerPort());
 
         return String.format("Hi, there. This is a message from First Service on PORT %s"
-            , env.getProperty("local.server.port"));
+                , env.getProperty("local.server.port"));
     }
 }

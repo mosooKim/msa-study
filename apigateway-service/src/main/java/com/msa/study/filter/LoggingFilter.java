@@ -44,12 +44,12 @@ public class LoggingFilter extends AbstractGatewayFilterFactory<LoggingFilter.Co
 
             log.info("Logging Filter baseMessage: {}", config.getBaseMessage());
 
-            if(config.isPreLogger()) {
+            if (config.isPreLogger()) {
                 log.info("Logging PRE Filter: request id -> {}", request.getId());
             }
             // Custom Post Filter
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {
-                if(config.isPostLogger()) {
+                if (config.isPostLogger()) {
                     log.info("Logging POST filter: response code -> {}", response.getStatusCode());
                 }
             }));
